@@ -33,7 +33,7 @@ public class FlightBookingTest
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
         fb.setTripSource("2");
         FlightBooking.TripSource expected = FlightBooking.TripSource.BEIJING;
-        FlightBooking.TripSource  result = fb.gTripSource(); 
+        FlightBooking.TripSource  result = fb.getTripSource(); 
         assertEquals(expected, result);
     }
 
