@@ -67,6 +67,19 @@ public class FlightBookingTest
         
         FlightBooking fb = new FlightBooking(null, null, null, 0, 0);
         
+        FlightBooking.TripSource source = FlightBooking.TripSource.NANJING;
+        FlightBooking.TripDestination destination = FlightBooking.TripDestination.BEIJING;
+
+        FlightBooking.TripType type = FlightBooking.TripType.ONE_WAY;
+
+        FlightBooking.BookingClass bookClass = FlightBooking.BookingClass.FIRST;
+
+        fb.setTripSource("1");
+        fb.setTripDestination("1", "2");
+
+        fb.setTripType("1");
+        fb.setBookingClass("1");
+        
         String expectedTicketNumber = "11FASDFDOM";
 
         String expectedSubstring1 = expectedTicketNumber.substring(0,2);
@@ -111,7 +124,7 @@ public class FlightBookingTest
         fb.setTotalTicketPrice();
 
         double returnedPrice = Math.abs(fb.getTotalTicketPrice());
-        double expectedPrice = Math.abs((((child *(300 * (0.1*300) + (0.05*300))) + (adults*(300 * (0.1*300) + (0.05*300)))) + 250)*2);
+        double expectedPrice = Math.abs((((child *((300 + (0.1*300)) + (0.05*300))) + (adults*((300 + (0.1*300)) + (0.05*300)))) + 250)*2);
 
         if (returnedPrice == expectedPrice){
             assertEquals(1, 1);
